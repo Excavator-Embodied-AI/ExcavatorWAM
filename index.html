@@ -38,6 +38,7 @@
         <span>ExcavatorWAM</span>
       </a>
       <div class="topbar-links">
+        <a href="#dataset-overview">Dataset</a>
         <a href="#method">Method</a>
         <a href="#training">Training</a>
         <a href="#results">Results</a>
@@ -92,6 +93,24 @@
     </header>
 
     <main id="main-content">
+      <section class="section-card dataset-overview-card" id="dataset-overview" aria-labelledby="dataset-overview-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">Dataset overview</p>
+            <h2 id="dataset-overview-title">Excavation data across diverse field conditions</h2>
+          </div>
+          <p>The training corpus spans multiple machines, onboard viewpoints, illumination conditions, material appearances, and real operating environments.</p>
+        </div>
+
+        <div class="dataset-video-frame">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/images/dataset-overview-poster.webp" data-autoplay-video aria-label="Animated mosaic of excavator-operation training data">
+            <source src="assets/videos/dataset-overview.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <p class="media-caption">Representative frames from excavation-domain video used by the three-tier training recipe.</p>
+      </section>
+
       <section class="section-card" id="overview" aria-labelledby="overview-title">
         <div class="section-heading split-heading overview-heading">
           <div>

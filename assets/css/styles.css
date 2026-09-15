@@ -437,6 +437,20 @@ figcaption {
   font-weight: 700;
 }
 
+.dataset-video-frame {
+  overflow: hidden;
+  border: 8px solid #eef0f6;
+  border-radius: 18px;
+  background: #080b0f;
+  box-shadow: 0 18px 42px rgba(31, 39, 50, 0.14);
+}
+
+.dataset-video-frame video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 .section-card {
   margin-bottom: 34px;
   padding: 48px 50px;
@@ -1149,6 +1163,11 @@ footer {
   }
 
   .paired-video-frame {
+    border-width: 5px;
+    border-radius: 13px;
+  }
+
+  .dataset-video-frame {
     border-width: 5px;
     border-radius: 13px;
   }
