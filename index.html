@@ -99,7 +99,7 @@
             <p class="section-kicker">Dataset overview</p>
             <h2 id="dataset-overview-title">Excavation data across diverse field conditions</h2>
           </div>
-          <p>The training corpus spans multiple machines, onboard viewpoints, illumination conditions, material appearances, and real operating environments.</p>
+          <p>The training corpus spans multiple machines, viewpoints, illumination conditions, material appearances, and field environments.</p>
         </div>
 
         <div class="dataset-video-frame">
@@ -117,7 +117,7 @@
             <p class="section-kicker">System overview</p>
             <h2 id="overview-title">Unified multimodal modeling for full-cycle excavator loading</h2>
           </div>
-          <p>ExcavatorWAM couples future visual prediction with action generation while retaining one end-to-end policy across digging, lifting, slewing, and dumping.</p>
+          <p>ExcavatorWAM couples future visual prediction and action generation in one policy for digging, lifting, slewing, and dumping.</p>
         </div>
         <div class="overview-layout">
           <div class="overview-narrative">
@@ -169,7 +169,7 @@
             <p class="section-kicker">Method</p>
             <h2 id="method-title">A shared world and action model</h2>
           </div>
-          <p>Future frames supervise representation learning during training; inference directly generates actions without rolling out future video.</p>
+          <p>Future frames supervise representation learning during training; inference generates actions directly without rolling out video.</p>
         </div>
 
         <figure class="wide-figure architecture-figure">
@@ -190,7 +190,7 @@
             <p class="section-kicker">Training</p>
             <h2 id="training-title">A three-tier excavator data pyramid</h2>
           </div>
-          <p>Supervision becomes richer and more machine-specific at each stage, while the volume decreases by one order of magnitude.</p>
+          <p>Supervision becomes richer and more machine-specific at each stage as data volume decreases by one order of magnitude.</p>
         </div>
 
         <div class="training-layout">
@@ -257,7 +257,7 @@
             <p class="section-kicker">Deployment</p>
             <h2 id="deployment-title">One checkpoint, three real-time modes</h2>
           </div>
-          <p>A 16-step action chunk spans 1.6 seconds at 10 Hz, leaving substantial compute margin on the Jetson AGX Orin.</p>
+          <p>Each 16-step action chunk spans 1.6 seconds at 10 Hz, leaving ample compute margin on the Jetson AGX Orin.</p>
         </div>
 
         <figure class="wide-figure">
