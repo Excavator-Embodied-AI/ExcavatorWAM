@@ -1,0 +1,20 @@
+# Local research materials. Only optimized derivatives under /assets are public.
+/image/
+/模型架构图/
+/视频资料/
+/展示PPT*/
+/展示PPT*.zip
+/run_*/
+
+# Local agent and editor state.
+/.agents/
+/.codex/
+.DS_Store
+Thumbs.db
+
+# Temporary and backup files.
+*.tmp
+*.dtmp
+*.bkp
+*.pyc
+__pycache__/

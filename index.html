@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ExcavatorWAM is a unified multimodal World–Action Model for full-cycle autonomous excavator loading with RGB, LiDAR-derived elevation, and proprioception.">
+  <meta name="theme-color" content="#6952a3">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ExcavatorWAM — A Unified Multimodal Model for Autonomous Loading">
+  <meta property="og:description" content="A single multimodal policy for full-cycle loading on a real full-size excavator.">
+  <meta property="og:image" content="assets/images/social-preview.webp">
+  <title>ExcavatorWAM | Unified Multimodal Autonomous Loading</title>
+
+  <link rel="icon" href="assets/images/excavator-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "ExcavatorWAM: A Unified Multimodal Model for Autonomous Loading",
+    "description": "A unified multimodal World–Action Model for full-cycle autonomous excavator loading.",
+    "dateCreated": "2026"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="ExcavatorWAM home">
+        <img src="assets/images/excavator-mark.svg" alt="" width="48" height="48">
+        <span>ExcavatorWAM</span>
+      </a>
+      <div class="topbar-links">
+        <a href="#method">Method</a>
+        <a href="#training">Training</a>
+        <a href="#results">Results</a>
+        <a href="#demos">Demos</a>
+      </div>
+      <span class="anonymous-tag">Anonymous project page</span>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Full-cycle autonomous loading</p>
+        <h1>
+          <span class="project-name">Excavator<span>WAM</span></span>
+          <span class="paper-title">A Unified Multimodal Model for Autonomous Loading</span>
+        </h1>
+        <p class="hero-deck">One policy combines local RGB appearance, global LiDAR geometry, and proprioception to dig, lift, slew, and dump on a real full-size excavator.</p>
+
+        <div class="resource-row" aria-label="Project resources">
+          <button class="resource-button paper" type="button" data-resource="Paper" data-message="The anonymous manuscript will be linked here when it is ready for public release.">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6"/></svg>
+            <span>Paper</span><small>Coming soon</small>
+          </button>
+          <button class="resource-button code" type="button" data-resource="Code" data-message="Training and deployment code is being prepared for release.">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+            <span>Code</span><small>Coming soon</small>
+          </button>
+          <button class="resource-button data" type="button" data-resource="Dataset" data-message="Dataset links will be added after the anonymous review period.">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+            <span>Dataset</span><small>Coming soon</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="paired-video-frame">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/images/rgb-elevation-poster.webp" data-autoplay-video aria-label="Synchronized onboard RGB and LiDAR-derived elevation views">
+            <source src="assets/videos/rgb-elevation.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <span class="video-label rgb-label">RGB main view</span>
+          <span class="video-label elevation-label">LiDAR elevation</span>
+        </div>
+        <p class="media-caption">Synchronized local appearance and robot-centric geometry during field operation.</p>
+      </div>
+
+      <div class="headline-stats" aria-label="Headline real-machine and deployment results">
+        <div><strong>14<span>%</span></strong><p>Empty-bucket rate</p></div>
+        <div><strong>18<span>s</span></strong><p>Average time per bucket</p></div>
+        <div><strong>221<span>ms</span></strong><p>Fused action chunk</p></div>
+        <div><strong>8.5<span>×</span></strong><p>Inference speedup</p></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section-card" id="overview" aria-labelledby="overview-title">
+        <div class="section-heading split-heading overview-heading">
+          <div>
+            <p class="section-kicker">System overview</p>
+            <h2 id="overview-title">Unified multimodal modeling for full-cycle excavator loading</h2>
+          </div>
+          <p>ExcavatorWAM couples future visual prediction with action generation while retaining one end-to-end policy across digging, lifting, slewing, and dumping.</p>
+        </div>
+        <div class="overview-layout">
+          <div class="overview-narrative">
+            <article>
+              <span>Problem</span>
+              <h3>Local appearance is not enough</h3>
+              <p>The main-view camera captures bucket–soil interaction, but global pile and truck geometry extends beyond its field of view and can be obscured by dust, darkness, or occlusion.</p>
+            </article>
+            <article>
+              <span>Approach</span>
+              <h3>Learn actions with multimodal futures</h3>
+              <p>ExcavatorWAM combines RGB, a LiDAR-derived bird's-eye elevation map, and proprioception. It jointly learns future prediction and action generation, then directly emits action chunks at inference.</p>
+            </article>
+          </div>
+          <aside class="mode-panel" aria-label="Supported visual input modes">
+            <p class="mini-label">One checkpoint</p>
+            <h3>Three input modes</h3>
+            <div class="mode-list">
+              <span class="mode active">RGB + elevation</span>
+              <span class="mode">RGB only</span>
+              <span class="mode">Elevation only</span>
+            </div>
+            <p>Modality masking trains a shared parameter set across fused and single-modality inputs.</p>
+          </aside>
+        </div>
+
+        <div class="contribution-grid" aria-label="Main contributions">
+          <article>
+            <span>01</span>
+            <h3>Full-size deployment</h3>
+            <p>A World–Action Model performs end-to-end loading on a 49-ton excavator.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Unified multimodal prediction</h3>
+            <p>RGB and LiDAR elevation futures jointly shape a shared visual–dynamical representation.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Real-time action generation</h3>
+            <p>Two-step flow matching and cache reuse deliver a 16-step action chunk in 221 ms.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-card" id="method" aria-labelledby="method-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">Method</p>
+            <h2 id="method-title">A shared world and action model</h2>
+          </div>
+          <p>Future frames supervise representation learning during training; inference directly generates actions without rolling out future video.</p>
+        </div>
+
+        <figure class="wide-figure architecture-figure">
+          <img src="assets/images/architecture.webp" alt="ExcavatorWAM training framework with RGB pretraining, per-modality co-training, and fused post-training" loading="lazy">
+          <figcaption>Three-phase training progresses from excavation-domain video to unimodal action learning and masked multimodal fusion.</figcaption>
+        </figure>
+
+        <div class="method-strip">
+          <article><strong>Local</strong><span>RGB captures bucket–soil interaction and material flow.</span></article>
+          <article><strong>Global</strong><span>Elevation captures pile, truck, and surrounding geometry.</span></article>
+          <article><strong>Unified</strong><span>Video and action DiTs communicate through shared attention.</span></article>
+        </div>
+      </section>
+
+      <section class="section-card" id="training" aria-labelledby="training-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">Training</p>
+            <h2 id="training-title">A three-tier excavator data pyramid</h2>
+          </div>
+          <p>Supervision becomes richer and more machine-specific at each stage, while the volume decreases by one order of magnitude.</p>
+        </div>
+
+        <div class="training-layout">
+          <figure class="wide-figure pyramid-figure">
+            <img src="assets/images/data-pyramid.webp" alt="Three-tier data pyramid from egocentric videos to multi-excavator and target-excavator trajectories" loading="lazy">
+          </figure>
+          <div class="training-steps">
+            <article><span>Phase 1</span><strong>2,000 h</strong><h3>Excavation video</h3><p>Adapt the video backbone to in-domain visual dynamics.</p></article>
+            <article><span>Phase 2</span><strong>200 h</strong><h3>Multi-platform demonstrations</h3><p>Co-train future prediction and actions for each visual modality.</p></article>
+            <article><span>Phase 3</span><strong>20 h</strong><h3>Target-machine demonstrations</h3><p>Fine-tune fused inputs with stochastic modality masking.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="results" aria-labelledby="results-title">
+        <div class="section-heading">
+          <p class="section-kicker">Evaluation</p>
+          <h2 id="results-title">From closed-loop simulation to real machinery</h2>
+        </div>
+
+        <figure class="wide-figure cycle-figure">
+          <img src="assets/images/success-cycle.webp" alt="Eight snapshots showing approach, dig, lift, swing, align, dump, loaded, and reset phases" loading="lazy">
+          <figcaption>One continuous real-machine loading cycle driven by ExcavatorWAM.</figcaption>
+        </figure>
+
+        <div class="results-tables">
+          <div class="table-card">
+            <div class="table-title"><span>Simulation</span><strong>200 cycles · Isaac Sim 5.1</strong></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th scope="col">Method</th><th scope="col">Empty bucket</th><th scope="col">Time / bucket</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Diffusion Policy</th><td>40%</td><td>24 s</td></tr>
+                  <tr><th scope="row">RGB only</th><td>50%</td><td>32 s</td></tr>
+                  <tr><th scope="row">Elevation only</th><td>28%</td><td>25 s</td></tr>
+                  <tr><th scope="row">w/o pretraining</th><td>46%</td><td>38 s</td></tr>
+                  <tr><th scope="row">w/o modality masking</th><td>47%</td><td>33 s</td></tr>
+                  <tr class="best-row"><th scope="row">ExcavatorWAM</th><td>25%</td><td>24 s</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <div class="table-title"><span>Real machine</span><strong>Common evaluation protocol</strong></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th scope="col">Method</th><th scope="col">Empty bucket</th><th scope="col">Time / bucket</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Rule-based</th><td>15%</td><td>32 s</td></tr>
+                  <tr><th scope="row">Diffusion Policy</th><td>23%</td><td>22 s</td></tr>
+                  <tr><th scope="row">w/o modality masking</th><td>25%</td><td>20 s</td></tr>
+                  <tr class="best-row"><th scope="row">ExcavatorWAM</th><td>14%</td><td>18 s</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="deployment" aria-labelledby="deployment-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">Deployment</p>
+            <h2 id="deployment-title">One checkpoint, three real-time modes</h2>
+          </div>
+          <p>A 16-step action chunk spans 1.6 seconds at 10 Hz, leaving substantial compute margin on the Jetson AGX Orin.</p>
+        </div>
+
+        <figure class="wide-figure">
+          <img src="assets/images/deployment.webp" alt="ExcavatorWAM deployment flow from multimodal perception through the unified model to action chunks" loading="lazy">
+          <figcaption>Single-pass deployment with TensorRT FP16, two-step flow matching, and latent/KV-cache reuse.</figcaption>
+        </figure>
+
+        <div class="deployment-details">
+          <div class="mode-latency-panel">
+            <figure class="efficiency-panel">
+              <img src="assets/images/latency-modes.webp" alt="Latency comparison for elevation-only, fused, and RGB-only input modes" loading="lazy">
+              <figcaption>Per-chunk compute for the three modes served by one checkpoint.</figcaption>
+            </figure>
+            <div class="latency-cards" aria-label="Latency by input mode">
+              <article><span>Elevation</span><strong>206 ms</strong></article>
+              <article class="primary"><span>Fused</span><strong>221 ms</strong></article>
+              <article><span>RGB</span><strong>282 ms</strong></article>
+            </div>
+          </div>
+          <figure class="efficiency-panel ablation-panel">
+            <img src="assets/images/acceleration-ablation.webp" alt="Cumulative latency ablation for TensorRT, cache reuse, and few-step inference" loading="lazy">
+            <figcaption>The full acceleration stack reduces fused-mode latency from 1.9 s to 221 ms.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-card" id="demos" aria-labelledby="demos-title">
+        <div class="section-heading">
+          <p class="section-kicker">Demos</p>
+          <h2 id="demos-title">See the system in motion</h2>
+        </div>
+
+        <div class="demo-grid">
+          <article class="video-card">
+            <video controls muted playsinline preload="metadata" poster="assets/images/simulation-poster.webp" aria-label="Closed-loop excavator loading in simulation">
+              <source src="assets/videos/simulation.mp4" type="video/mp4">
+            </video>
+            <div class="video-copy"><span>Closed-loop simulation</span><h3>Deformable granular terrain</h3><p>Isaac Sim reproduces the full loading cycle with matched sensor streams and control rate.</p></div>
+          </article>
+
+          <article class="video-card presentation-card">
+            <video controls playsinline preload="metadata" poster="assets/images/presentation-poster.webp" aria-label="ExcavatorWAM technical overview">
+              <source src="assets/videos/presentation.mp4" type="video/mp4">
+            </video>
+            <div class="video-copy"><span>Technical overview</span><h3>From architecture to deployment</h3><p>A concise presentation of the multimodal model, simulation evaluation, and real-machine experiments.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-card citation-card" id="citation" aria-labelledby="citation-title">
+        <div>
+          <p class="section-kicker">Citation</p>
+          <h2 id="citation-title">BibTeX coming soon</h2>
+          <p>The final citation will be added when the paper is publicly released.</p>
+        </div>
+        <div class="citation-mark" aria-hidden="true">“</div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top">
+        <img src="assets/images/excavator-mark.svg" alt="" width="42" height="42">
+        <span>ExcavatorWAM</span>
+      </a>
+      <p>Anonymous project page · ICRA 2027 submission</p>
+      <p>© 2026 ExcavatorWAM project</p>
+    </footer>
+  </div>
+
+  <dialog class="resource-dialog" id="resource-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-x" type="button" data-dialog-close aria-label="Close dialog">×</button>
+    <span class="dialog-icon" aria-hidden="true">↗</span>
+    <h2 id="dialog-title">Coming soon</h2>
+    <p id="dialog-message">This resource will be available after public release.</p>
+    <button class="dialog-close" type="button" data-dialog-close>Got it</button>
+  </dialog>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
