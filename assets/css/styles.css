@@ -899,12 +899,6 @@ tbody tr:last-child td {
   object-fit: contain;
 }
 
-.demo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
 .video-card {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -923,6 +917,14 @@ tbody tr:last-child td {
   aspect-ratio: 16 / 9;
   background: #080b0f;
   object-fit: contain;
+}
+
+.featured-video-card {
+  width: 100%;
+}
+
+.night-video-card video {
+  aspect-ratio: 640 / 317;
 }
 
 .video-copy {
@@ -1190,8 +1192,7 @@ footer {
 
   .contribution-grid,
   .overview-narrative,
-  .method-strip,
-  .demo-grid {
+  .method-strip {
     grid-template-columns: 1fr;
   }
 

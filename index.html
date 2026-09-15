@@ -267,25 +267,30 @@
 
       <section class="section-card" id="demos" aria-labelledby="demos-title">
         <div class="section-heading">
-          <p class="section-kicker">Demos</p>
-          <h2 id="demos-title">See the system in motion</h2>
+          <p class="section-kicker">Real-machine demo</p>
+          <h2 id="demos-title">Autonomous loading at night</h2>
         </div>
 
-        <div class="demo-grid">
-          <article class="video-card">
-            <video controls muted playsinline preload="metadata" poster="assets/images/simulation-poster.webp" aria-label="Closed-loop excavator loading in simulation">
-              <source src="assets/videos/simulation.mp4" type="video/mp4">
-            </video>
-            <div class="video-copy"><span>Closed-loop simulation</span><h3>Deformable granular terrain</h3><p>Isaac Sim reproduces the full loading cycle with matched sensor streams and control rate.</p></div>
-          </article>
+        <article class="video-card featured-video-card night-video-card">
+          <video controls muted playsinline preload="metadata" poster="assets/images/night-operation-poster.webp" aria-label="Autonomous excavator loading at night with synchronized multimodal views">
+            <source src="assets/videos/night-operation.mp4" type="video/mp4">
+          </video>
+          <div class="video-copy"><span>Night operation</span><h3>Multimodal perception under challenging illumination</h3><p>Synchronized RGB, elevation, and robot-centric terrain views show the deployed system completing the loading cycle after dark.</p></div>
+        </article>
+      </section>
 
-          <article class="video-card presentation-card">
-            <video controls playsinline preload="metadata" poster="assets/images/presentation-poster.webp" aria-label="ExcavatorWAM technical overview">
-              <source src="assets/videos/presentation.mp4" type="video/mp4">
-            </video>
-            <div class="video-copy"><span>Technical overview</span><h3>From architecture to deployment</h3><p>A concise presentation of the multimodal model, simulation evaluation, and real-machine experiments.</p></div>
-          </article>
+      <section class="section-card" id="technical-overview" aria-labelledby="technical-overview-title">
+        <div class="section-heading">
+          <p class="section-kicker">Presentation</p>
+          <h2 id="technical-overview-title">Technical overview</h2>
         </div>
+
+        <article class="video-card featured-video-card presentation-card">
+          <video controls playsinline preload="metadata" poster="assets/images/presentation-poster.webp" aria-label="ExcavatorWAM technical overview">
+            <source src="assets/videos/presentation.mp4" type="video/mp4">
+          </video>
+          <div class="video-copy"><span>Three-minute overview</span><h3>From architecture to deployment</h3><p>A concise presentation of the multimodal model, simulation evaluation, and real-machine experiments.</p></div>
+        </article>
       </section>
 
       <section class="section-card citation-card" id="citation" aria-labelledby="citation-title">
@@ -303,7 +308,6 @@
         <img src="assets/images/excavator-mark.svg" alt="" width="42" height="42">
         <span>ExcavatorWAM</span>
       </a>
-      <p>Anonymous project page · ICRA 2027 submission</p>
       <p>© 2026 ExcavatorWAM project</p>
     </footer>
   </div>
