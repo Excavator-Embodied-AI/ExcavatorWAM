@@ -470,19 +470,6 @@ figcaption {
   letter-spacing: -0.035em;
 }
 
-.split-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  align-items: end;
-  gap: 40px;
-}
-
-.split-heading > p {
-  max-width: 480px;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
 .stacked-heading h2 {
   max-width: 920px;
 }
@@ -1214,11 +1201,6 @@ footer {
     margin-bottom: 22px;
     padding: 34px 20px;
     border-radius: 18px;
-  }
-
-  .split-heading {
-    grid-template-columns: 1fr;
-    gap: 13px;
   }
 
   .contribution-grid,
